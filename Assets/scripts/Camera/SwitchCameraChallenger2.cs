@@ -30,12 +30,6 @@ public class SwitchCameraChallenger2 : MonoBehaviour
             if(canvas!=null){
                 canvas.SetActive(!canvas.activeSelf);
             }
-            if(canvas.activeSelf){
-                if(ManageChallenger3.instance!=null){ManageChallenger3.instance.StopSoundStoneDoor();}
-            }
-            else{
-                if(ManageChallenger3.instance!=null){ManageChallenger3.instance.PlaySoundStoneDoor();}
-            }
             mainCamera.GetComponent<CinemachineBrain>().enabled = !mainCamera.GetComponent<CinemachineBrain>().isActiveAndEnabled;
             if(!mainCamera.GetComponent<CinemachineBrain>().enabled){
                 mainCamera.transform.position = posCamera.position;

@@ -5,8 +5,7 @@ using UnityEngine;
 public class ManageChallenger3 : MonoBehaviour
 {
     public List<Note> notes;
-    public MoveWall moveWall;
-    public AudioSource auMoveWall;
+
     public static ManageChallenger3 instance;
     void Start()
     {
@@ -24,19 +23,10 @@ public class ManageChallenger3 : MonoBehaviour
                 return false;
             }
         }
-        moveWall.isStop = true;
-        StopSoundStoneDoor();
         return true;
     }
 
     public void ChangeStatus(int id){
         notes[id].isRightNote = false;
-    }
-    public void PlaySoundStoneDoor(){
-        auMoveWall.Play();
-        auMoveWall.loop=true;
-    }
-    public void StopSoundStoneDoor(){
-        auMoveWall.Pause();
     }
 }
