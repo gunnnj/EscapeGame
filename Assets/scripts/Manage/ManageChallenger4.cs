@@ -11,10 +11,13 @@ public class ManageChallenger4 : MonoBehaviour
     public GameObject go1;
     public GameObject go2;
     public FlipCard[] flipCards;
+    public GameObject key;
+    private int numOfTwin = 0;
 
     void Start()
     {
         instance = this;
+        key.SetActive(false);
     }
 
     public void SetIndexCard(int idx){
@@ -37,7 +40,8 @@ public class ManageChallenger4 : MonoBehaviour
         if(idSecondCard == -1) return;
         if(idFirstCard == idSecondCard){
             Debug.Log(true);
-            
+            numOfTwin++;
+            Success();
         }
         else{
             Debug.Log(false);
@@ -47,6 +51,13 @@ public class ManageChallenger4 : MonoBehaviour
             ResetCard();
         }
         
+    }
+
+    private void Success()
+    {
+        if(numOfTwin==8){
+            key.SetActive(true);
+        }
     }
 
     private void ResetCard()
