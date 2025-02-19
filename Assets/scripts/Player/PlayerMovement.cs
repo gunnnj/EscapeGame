@@ -18,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed = 6f;
     private float walkSpeed = 2f;
     private float rotationSpeed = 10f;
-    private bool IsMove = false;
+    public bool IsMove = false;
     public GameObject light;
+    public bool isStop = false;
 
     void Start()
     {
@@ -35,14 +36,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // if(!IsMove){
-        //     Jump();
-        // }
-        // else{
-        //     MoveAndRotation();
-        // }
-        MoveAndRotation();
-        // Jump();
+        if(!isStop){
+            MoveAndRotation();
+        }
         
     }
     public void TurnOnLight(){

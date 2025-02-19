@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -16,10 +17,12 @@ public class ManageGlow : MonoBehaviour
     public GameObject Close;
     public GameObject Ghost;
     public GameObject Door;
+    public GameObject circle;
 
     void Start()
     {
         instance = this;
+        circle.SetActive(false);
         Open.SetActive(false);
         Close.SetActive(true);
         Door.SetActive(true);
@@ -80,13 +83,20 @@ public class ManageGlow : MonoBehaviour
             if(!boolGlows[i]) return;
         }
 
-        //Đóng mở hồm vật phẩm
-        Open.SetActive(true);
-        Close.SetActive(false);
-        //Nhận được Ghost
-        Ghost.SetActive(true);
+        //Đóng mở hồm vật phẩm    
+        Close.SetActive(false);    
         //Mở cửa
         Door.SetActive(false);
+        StartCoroutine(DisCircleMagic());     
         Ghost.GetComponent<GhostMove>().enabled = true;
+    }
+
+    private IEnumerator DisCircleMagic()
+    {
+        circle.SetActive(true);
+        Ghost.SetActive(true);
+        Open.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        circle.SetActive(false);
     }
 }

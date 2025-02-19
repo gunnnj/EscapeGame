@@ -17,6 +17,7 @@ public class RollingStoneSphere : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,transform.position+new Vector3(-1,0,0)*rollingSpeed*Time.deltaTime,1f);
         // Di chuyển quả cầu
             transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+            // transform.position = new Vector3(transform.position.x, 2.25f, transform.position.z);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -18,15 +19,9 @@ public class SwitchCameraChallenger2 : MonoBehaviour
         }   
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.CompareTag("Player")){
-    //         PressF();
-    //     }
-    // }
-
     public void PressF(){
-        if(Input.GetKeyDown(KeyCode.F)){
+
+        if(Input.GetKeyDown(KeyCode.F)){        
             if(canvas!=null){
                 canvas.SetActive(!canvas.activeSelf);
             }

@@ -21,7 +21,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         DragEvent.dragItem-=SetparrentEndDragItem;
     }
     public void OnBeginDrag(PointerEventData eventData){
-
         parentAffterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -39,7 +38,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         
         DetectOut();
         CheckStatus(transform.parent);
-        ManageChallenger3.instance.CheckSuccess();
+        if(ManageChallenger3.instance.CheckSuccess()){
+            ManageChallenger3.instance.ResetCam();
+            ShakeAndDestroy.Instance.TriggerShakeAndDisappear();
+        }
+        
+        
         
 
     }

@@ -9,11 +9,12 @@ TagManager:
   - WayPonits
   - Killer
   - InventoryItem
+  - Stone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Stone

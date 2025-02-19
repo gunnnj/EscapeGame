@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ManageChallenger4 : MonoBehaviour
 {
@@ -39,12 +40,10 @@ public class ManageChallenger4 : MonoBehaviour
     public void CheckTwinCard(){
         if(idSecondCard == -1) return;
         if(idFirstCard == idSecondCard){
-            Debug.Log(true);
             numOfTwin++;
             Success();
         }
         else{
-            Debug.Log(false);
             StartCoroutine(FlopCard(go1,go2));
         }
         if(idFirstCard>=0 && idSecondCard>=0){
@@ -57,6 +56,8 @@ public class ManageChallenger4 : MonoBehaviour
     {
         if(numOfTwin==8){
             key.SetActive(true);
+            transform.GetComponent<BoxCollider>().enabled = false;
+            SwitchCameraChallenger2.instance.mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         }
     }
 
